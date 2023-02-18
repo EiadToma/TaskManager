@@ -15,19 +15,19 @@ const getTasks = async()=>{
 },[])
 
 const fetchTasks = async()=>{
-  const res= await fetch(`http://localhost:4000/Tasks`)
+  const res= await fetch(`https://TM-json-server.onrender.com/Tasks`)
   const data = await res.json()
   return data
 }
 const fetchTask = async(id)=>{
-  const res= await fetch(`http://localhost:4000/Tasks/${id}`)
+  const res= await fetch(`https://TM-json-server.onrender.com/Tasks/${id}`)
   const data = await res.json()
   return data
 }
 
 
 const addTask =async (task)=>{
-const res = await fetch('http://localhost:4000/Tasks',
+const res = await fetch('https://TM-json-server.onrender.com/Tasks',
 {
   method:'POST',
   headers:{
@@ -46,7 +46,7 @@ setTasks([...tasks,data])
 
 
 const deleteTask =async(id)=> {
-  await fetch(`http://localhost:4000/Tasks/${id}`,
+  await fetch(`https://TM-json-server.onrender.com/Tasks/${id}`,
   {method:'DELETE'
 })
 setTasks(tasks.filter((task) =>task.id !==id
@@ -56,7 +56,7 @@ setTasks(tasks.filter((task) =>task.id !==id
 const toggleReminder =async (id) =>{
 const taskToToggle= await fetchTask(id)
 const updTask = {...taskToToggle,reminder:!taskToToggle.reminder}
-const res=await fetch(`http://localhost:4000/Tasks/${id}`,{
+const res=await fetch(`https://TM-json-server.onrender.com/Tasks/${id}`,{
   method:'PUT',
   headers:{
     'content-type':'application/json'

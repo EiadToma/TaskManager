@@ -10,7 +10,7 @@ const Header = ({h1,onAdd,showAdd}) => {
   )
 }
 Header.defaultProps ={
-    h1:'nibba here i come',
+    h1:'Task Manager',
 }
 Header.propTypes={
     h1:PropTypes.string.isRequired
